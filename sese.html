@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./二次元.svg">
+    <title>休息一下(网页版)金岂®</title>
+    <meta name="keywords" content="休息一下,动漫,少女,Javascript,分享,金岂,悠闲">
+    <meta name="description" content="挑选优质图源，随机返回对应类型图片">
+    <!-- <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?0c8d38aca11e686e8a6d4c3883305c41";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> -->
+
+</head>
+<body>
+  <span style="font-size: 10px;color: #a2a2a2;">反馈邮箱：sumo3131549989@163.com&emsp;
+    <a href="./好心人.html" style="color: #a0a0a0;"><u>在线交友&捐款(●'◡'●)</u></a>
+    </span><br>
+    <span style="line-height: 1.2;font-size: 10px;color: #a2a2a2; position: fixed;bottom: 5px; z-index: 2;">摆烂中。<br><a href="https://greasyfork.org/zh-CN/users/1047072-wkx3131" style="color: #a0a0a0;"><u>查看油猴脚本</u></a>
+    <br><a href="https://space.bilibili.com/286450879" style="color: #a0a0a0;"><u>查看B站主页</u></a></span>
+    <script>
+var [imgsize,result] = [true,"18认证"]//qq群854568539
+const animeButton = document.createElement('button');
+const sceneryButton = document.createElement('button');
+const beautyButton = document.createElement('button');
+const cosButton = document.createElement('button');
+const videoButton = document.createElement('button');
+const animeButton2 = document.createElement('button');
+animeButton.innerText = 'ACG Ⅰ';
+animeButton2.innerText = 'ACG Ⅱ';
+sceneryButton.innerText = '场景';
+beautyButton.innerText = '小仙女';
+cosButton.innerText = 'COS';
+videoButton.innerText = '视频';
+const R18input = document.createElement('input');//单选
+const rightban = document.createElement('input');//单选右击
+const ttmmini = document.createElement('input');//最小化
+R18input.type = 'checkbox';
+rightban.type = 'checkbox';
+ttmmini.type = 'checkbox';
+R18input.checked = false;
+R18input.onchange = (event)=>{
+  if (R18input.checked==true) {R18yes();}else{
+    result="wkx";
+    animeButton.style.backgroundColor="#FFC0CB";
+    animeButton2.style.backgroundColor="#FFC0CB";
+    cosButton.style.backgroundColor="#FFC0CB";
+  }
+    R18input.checked = false;
+}
+const spans = document.createElement('label');//单选文本
+spans.innerText = 'R18模式';
+spans.setAttribute("for", "moshi");
+const righttxt = document.createElement('label');//右击文本
+righttxt.innerText = '模拟右击(手机适配)';
+righttxt.setAttribute("for", "youji");
+const ttmminit = document.createElement('label');//最小化
+ttmminit.innerText = 'size降低一档';
+ttmminit.setAttribute("for", "minim");
+
+const randomImage = document.createElement('img');// 创建图片
+randomImage.style.width = "100%";
+randomImage.addEventListener("click", function(event) {
+  if(rightban.checked && result!="金岂"){
+    result = prompt("恭喜你找到了真正的R18入口,请联系作者证明你已满18岁","金岂");
+      if(result=="金岂"){
+        animeButton.style.backgroundColor="Gold";
+        animeButton2.style.backgroundColor="Gold";
+        cosButton.style.backgroundColor="Gold";
+        R18input.checked = true;}
+  }else{
+    imgsize=!imgsize;
+    if (ttmmini.checked){
+    buttonContainer.style.width =imgsize ? '30%' : '60%';}else{
+      buttonContainer.style.width =imgsize ? '90%' : '55%';
+    }
+    if(isMobile){
+      setTimeout(function() {
+        videoButton.style.display=imgsize?'':"none";
+        }, 200);
+    }
+  }
+})
+randomImage.addEventListener("contextmenu", function(event) {//右击
+      event.preventDefault(); // 阻止默认事件，即不弹出上下文菜单
+      if(result!="金岂"){
+      result = prompt("恭喜你找到了真正的R18入口,请联系作者证明你已满18岁","金岂");
+      if(result=="金岂"){
+        animeButton.style.backgroundColor="Gold";
+        animeButton2.style.backgroundColor="Gold";
+      cosButton.style.backgroundColor="Gold";
+      R18input.checked = true;}}
+    });
+
+const newDiv = document.createElement('div');//底部加载提示
+newDiv.style=`
+position :absolute;
+top:70%;
+left:50%;
+transform:translateX(-50%);
+width:100px;
+z-index:1;`
+randomImage.onload = function() {
+  newDiv.innerText="图片加载中..";
+};
+randomImage.onerror = function() {
+  newDiv.innerText="";
+};
+
+const videoye = document.createElement('video');//创建视频
+const container = document.getElementById("div");
+videoye.style.width='100%';
+videoye.controls = true;
+videoye.autoplay = true;
+videoye.style.display="none";
+videoye.style.position="relative";
+videoye.style.zIndex="16";
+videoye.style.top="5px";
+videoye.muted = true;
+
+// 按钮容器
+const buttonContainer = document.createElement('div');
+buttonContainer.id="newKuang"
+buttonContainer.style = `
+position: relative;
+  top: 20px;
+  width: 90%;
+  margin:auto;
+  height: auto;
+  min-height:280px;
+  background-color: #FFF;
+  border: 4px solid #c9c9c9;
+  border-radius: 12px;
+  padding: 15px;
+  padding-top: 40px;
+  z-index: 99;
+  transition: all 0.8s ease-out;
+  text-align: center;
+`;//#F5F5F5乳白色
+
+// 按钮通用样式
+const buttonStyle = `
+  background-color: #FFC0CB;
+  color: #FFFFFF;
+  border: none;
+  font-size:14px;
+  padding: 10px;
+  height: 38px;
+  line-height:18px;
+  border-radius: 8px;
+  margin-right: 10px;
+  margin-top:10px;
+  cursor: pointer;
+  box-shadow:4px 4px 5px #CCC;
+  transition: background-color 2s ease-out;
+`;
+animeButton.style = buttonStyle;
+animeButton2.style = buttonStyle;
+sceneryButton.style = buttonStyle;
+beautyButton.style = buttonStyle;
+cosButton.style = buttonStyle;
+videoButton.style = buttonStyle;
+// 图片样式
+randomImage.style.display = 'block';
+randomImage.style.marginTop = '20px';
+randomImage.style.borderRadius = '10px';
+randomImage.style.transition="all 0.4s linear";
+randomImage.style.position = 'relative';
+randomImage.style.zIndex=10
+randomImage.alt = "图片加载失败,请等待作者修复(如果作者没有摆烂)";
+// 18
+spans.style=`
+color: black;
+position:absolute;
+top:12px;
+right:10px;
+font-size:12px;
+cursor: default;`;
+R18input.style=`
+position:absolute;
+top:10px;
+right:55px;
+cursor: pointer;`;
+R18input.id="moshi";
+// 右击
+righttxt.style=`
+color: black;
+position:absolute;
+top:12px;
+right:80px;
+font-size:12px;
+cursor: default;`;
+rightban.style=`
+position:absolute;
+top:10px;
+right:185px;
+cursor: pointer;`;
+rightban.id="youji";
+// 最小化
+ttmminit.style=`
+color: black;
+position:absolute;
+top:12px;
+right:210px;
+font-size:12px;
+cursor: default;`;
+ttmmini.style=`
+position:absolute;
+top:10px;
+right:280px;
+cursor: pointer;`;
+ttmmini.id="minim";
+
+buttonContainer.onmousedown = (event) => {//利用冒泡优化代码
+  const button = event.target.closest('button'); // 找到最近的button元素
+  if (button) {
+    button.style.filter = 'brightness(0.8)'; // 设置按钮亮度
+  }
+};
+buttonContainer.onmouseup = (event) => {
+  const button = event.target.closest('button');
+    if (button) {
+            button.style.filter = 'brightness(1)';
+    }
+};
+//let currentUrl = `${htop}api.yimian.xyz/img?type=head`;//小头像
+//let currentUrl = `https://api.likepoems.com/img/mc`;//胡桃
+randomImage.src = `https://www.loliapi.com/acg/pp/`;//精致头像
+const acg1_l = `https://www.loliapi.com/acg/?`; //api.vvhan.com/api/acgimg  api.gmit.vip/Api/DmImg?format=image
+const acg1_r = `https://t.lizi.moe/pc?`;
+const acg1_lh = `https://sex.nyan.xyz/api/v2/img?r18=true&`; 
+const acg1_rh = `https://image.anosu.top/pixiv/?db=1&r18=1&`;//jitsu的随机涩图
+const acg2_l = `https://t.lizi.moe/mp?`;
+const acg2_r = `https://t.mwm.moe/mp?`;
+// const acg2_r = `https://api.ghser.com/random/pe.php?`;
+const acg2_lh = `https://moe.anosu.top/img?sort=setu&`;//jitsu的随机涩图
+const acg2_rh = `https://image.anosu.top/pixiv/?db=0&r18=1&`;
+const scenery_l = `https://t.lizi.moe/fj?`;
+const scenery_r = `https://api.asxe.vip/scenery.php?`;
+const scenery_r2 = `https://t.mwm.moe/fj?`;
+const beauty_l = `http://api.btstu.cn/sjbz/?lx=meizi&`;
+const beauty_r = `https://api.btstu.cn/sjbz/?`;
+const cos_l = `https://api.caonm.net/api/mnt/index.php?`;
+const cos_r = `https://api.vvhan.com/api/girl?`;
+const cos_r2 = `https://api.asxe.vip/whitesilk.php?`;
+const cos_lh = `https://api.caonm.net/api/bhs/b.php?`;
+const cos_rh = `https://api.caonm.net/api/bhs/h.php?`;
+// --
+animeButton.onclick = () => {
+  if (rightban.checked){
+    if(result=="金岂"){
+      getRandomImage(acg1_rh);
+  }else{
+    getRandomImage(acg1_r);
+  }
+  }else{
+  if(result=="金岂"){
+    getRandomImage(acg1_lh);
+  }else{
+    getRandomImage(acg1_l);
+  }}
+};
+animeButton.addEventListener("contextmenu", function(event) {//右击
+      event.preventDefault();
+      if(result=="金岂"){
+      getRandomImage(acg1_rh);
+  }else{
+    getRandomImage(acg1_r);
+  }
+    });
+animeButton2.onclick = () => {
+  if (rightban.checked){
+    if(result=="金岂"){
+      getRandomImage(acg2_rh);
+  }else{
+    getRandomImage(acg2_r);
+  }
+  }else{
+  if(result=="金岂"){
+    getRandomImage(acg2_lh);
+  }else{
+    getRandomImage(acg2_l);
+  }}
+};
+animeButton2.addEventListener("contextmenu", function(event) {//右击
+      event.preventDefault();
+      if(result=="金岂"){
+      getRandomImage(acg2_rh);
+  }else{
+    getRandomImage(acg2_r);
+  }
+    });
+// --
+sceneryButton.onclick = () => {
+  if(rightban.checked){
+    getRandomImage(scenery_r,scenery_r2);
+  }else{
+    getRandomImage(scenery_l);
+ }
+};
+sceneryButton.addEventListener("contextmenu", function(event) {//右击
+      event.preventDefault();
+      getRandomImage(scenery_r,scenery_r2);
+    });
+// --
+beautyButton.onclick = () => {
+  if(rightban.checked){
+    getRandomImage(beauty_r);
+  }
+  else{
+    getRandomImage(beauty_l);
+  //currentUrl = `${htop}cdn.seovx.com/?mom=302&t=${Date.now()}`;} // 使用仙女图片
+};
+beautyButton.addEventListener("contextmenu", function(event) {//右击
+      event.preventDefault();
+      getRandomImage(beauty_r);
+    });
+  }
+// --
+cosButton.onclick = () => {
+  if(rightban.checked){
+    if(result=="金岂"){
+      getRandomImage(cos_rh);
+  }else{
+    getRandomImage(cos_r,cos_r2);
+  }
+  }else{
+  if(result=="金岂"){
+    getRandomImage(cos_lh);
+  }else{
+    getRandomImage(cos_l);
+
+  }}
+};
+cosButton.addEventListener("contextmenu", function(event) {//右击
+      event.preventDefault();
+      if(result=="金岂"){
+        getRandomImage(cos_rh);
+  }else{
+    getRandomImage(cos_r,cos_r2);
+  }
+  
+    });
+// --
+videoButton.onclick = () => {
+  videoye.src=`https://api.qqsuu.cn/api/dm-xjj?type=video&t=${Date.now()}`;// 使用视频
+  videoye.style.display="block";
+  // randomImage.style.display="none";
+  randomImage.src = "";//
+  randomImage.alt = "点击改变宽度";
+};
+videoButton.addEventListener("contextmenu", function(event) {//右击
+      event.preventDefault();
+  window.location.href="https://tucdn.wpon.cn/api-girl/index.php"
+    });
+// 将按钮和图片添加到容器中
+buttonContainer.appendChild(animeButton);//动漫按钮
+buttonContainer.appendChild(animeButton2);//动漫按钮2
+buttonContainer.appendChild(sceneryButton);//风景按钮
+buttonContainer.appendChild(beautyButton);//仙女按钮
+buttonContainer.appendChild(cosButton);//COS按钮
+buttonContainer.appendChild(videoButton);//视频按钮
+buttonContainer.appendChild(newDiv);//底部提示
+buttonContainer.appendChild(randomImage);//图片
+buttonContainer.appendChild(videoye);//视频
+buttonContainer.appendChild(rightban);//右击
+buttonContainer.appendChild(R18input);//单选
+buttonContainer.appendChild(ttmmini);//最小
+buttonContainer.appendChild(spans);//单选文本
+buttonContainer.appendChild(righttxt);//右击文本
+buttonContainer.appendChild(ttmminit);//最小
+document.body.appendChild(buttonContainer);
+
+function R18yes(){//戏耍
+const result = confirm('⚠️您已经年满180周岁?');
+if (result) {
+  alert('〠经过系统检测,你未满180周岁,根据《未成年人保护法》你无法访问R18内容!');
+    
+}}
+function getRandomImage(url) {//链接
+    randomImage.src = "";
+  randomImage.src = url+`t=${Date.now()}`;
+  videoye.style.display="none";
+  randomImage.alt = "图片加载失败,请等待作者修复(如果作者没有摆烂)";
+}
+function getRandomImage(url,url2) {//链接
+    randomImage.src = "";
+  randomImage.src = url+`t=${Date.now()}`;
+  randomImage.onerror = function() {
+    randomImage.src = url2+`t=${Date.now()}`;
+    console.log("当前是备用图源");
+  }
+  videoye.style.display="none";
+  randomImage.alt = "图片加载失败,请等待作者修复(如果作者没有摆烂)";
+}
+const isMobile = /Android|iPhone|Opera Mini/i.test(navigator.userAgent);
+// /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+if (isMobile) {
+  // 当前是手机打开的
+  ttmmini.style.display = "none";
+  ttmminit.style.display = "none";
+} else {
+  // 当前是电脑打开的
+  imgsize=false;
+  buttonContainer.style.width ='55%';
+}
+
+// http://2t8.cn/oX8s6
+// https://zws.im/󠁣󠁡󠁤󠁣󠁫󠁳󠁳
+    </script>
+    <style>
+      body{
+        background-color: #e1e1e1;
+        overflow-y: scroll;
+      }
+      ::-webkit-scrollbar {
+  width: 0 !important;
+}
+::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0;
+}
+    </style>
+</body>
+</html>

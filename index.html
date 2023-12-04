@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            background-color: #ddd;
+        }
+
+
+        .circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(20px);
+        }
+        .circle:hover {
+            box-shadow: 10px 10px 5px rgb(233, 212, 118);
+            cursor: pointer;
+        }
+        
+        h1{
+            text-align: center;
+            line-height: 150px;
+            color: rgba(0, 0, 0, 0);
+            
+        }
+        #hh1{
+            animation: hh1 1s ease-in-out 2s forwards;
+        }
+        #circle1 {
+            background-color: rgba(189, 69, 103, 0.8);
+            animation: moveUp 2s ease-in-out 1s forwards;
+        }
+        
+        #circle2 {
+            background-color: rgba(32, 139, 139, 0.8);
+            animation: moveLeft 2s ease-in-out 1s forwards;
+        }
+        
+        #circle3 {
+            background-color: rgba(64, 132, 68, 0.8);
+            animation: moveRight 2s ease-in-out 1s forwards;
+        }
+
+        @keyframes moveUp {
+            0% {
+                transform: translate(-50%, -50%);
+            }
+            100% {
+                transform: translate(-50%, -50%) translateY(-130px);
+            }
+        }
+
+        @keyframes moveLeft {
+            0% {
+                transform: translate(-50%, -50%);
+            }
+            100% {
+                transform: translate(-110%, -50%) translateY(130px);
+            }
+        }
+
+        @keyframes moveRight {
+            0% {
+                transform: translate(-50%, -50%);
+            }
+            100% {
+                transform: translate(10%, -50%) translateY(130px);
+            }
+        }
+        @keyframes hh1 {
+            0% {
+                color: rgba(0, 0, 0, 0);
+            }
+            100% {
+                color: rgba(0, 0, 0, 1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2 style="size: 86px;">金岂-我的作品导航页11</h2>
+    <h4><a href="./null.html">我的简历</a></h4>
+    <div id="container">
+        <a href="./sese.html"><div id="circle1" class="circle"><h1 id="hh1">我的色色</h1><p>使用说明请查看油猴脚本详情页<br> https://greasyfork.org/zh-CN/scripts/462915-%E4%BC%91%E6%81%AF%E4%B8%80%E4%B8%8B<br></p></div></a>
+        <a href="https://wkx3131.github.io/wkx.github.io/#/login"><div id="circle2" class="circle"><h1 id="hh1">我的毕设</h1><p>目前只适配电脑端</p></div></a>
+        <a href="./null.html"><div id="circle3" class="circle"><h1 id="hh1">我的摄影</h1></div></a>
+    </div>
+
+    <script>
+        // window.onload = function() {
+        //     setTimeout(function() {
+        //         var circle1 = document.getElementById("circle1");
+        //         var circle2 = document.getElementById("circle2");
+        //         var circle3 = document.getElementById("circle3");
+        //         var circle3 = document.getElementById("hh1");
+
+        //     }, 1000);
+        // }
+    </script>
+</body>
+</html>

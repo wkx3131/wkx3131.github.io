@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wyy</title>
+    <style>
+    </style>
+</head>
+<body>
+<div class="nxt" onclick="console.log('123');"></div>
+
+    <script>
+        const div = document.createElement('div');
+        const divs = document.createElement('div');
+        var shape = true;
+const span = document.createElement('span');
+span.textContent = 'img..';
+const button = document.createElement('button');
+button.textContent = "が";
+const audio = document.createElement('audio');
+audio.controls = true;
+audio.loop = true;
+audio.src = '';
+const text = document.createTextNode('Your browser does not support this audio format.');
+audio.appendChild(text);
+divs.appendChild(span);
+divs.appendChild(button);
+div.appendChild(audio);
+div.appendChild(divs);
+document.body.appendChild(div);
+// const nxtElements = document.getElementsByClassName('nxt')[0];
+// audio.src = 'https://music.163.com/song/media/outer/url?id=29043459';span.textContent = "庭園にて";
+button.addEventListener('click',function(){
+  if(shape){
+  div.style.width="110px";
+  div.style.height="110px";
+  divs.style.width="110px";
+  audio.style.width="110px";
+  span.style.opacity="0";}else{
+    div.style.width="300px";
+    div.style.height="125px";
+  divs.style.width="300px";
+  audio.style.width="300px";
+  span.style.opacity="1";
+  }shape=!shape
+  div.style.transition="width 0.6s ease-out, height 0.4s 0.7s";
+})
+
+div.style=`
+position:fixed;
+border-radius:30px;
+width:300px;
+height:125px;
+background-color:#ddd;
+border:6px solid black;
+top:120px;
+left:10px;
+`
+divs.style=`
+border-radius:25px;
+width:300px;
+height:110px;
+cursor: grab;
+background-color: #ddd;
+padding-top: 15px;
+box-sizing: border-box;
+transition: width 0.6s ease-out;
+`
+audio.style=`position:absolute;
+bottom:0;
+left:0;
+z-index:90;
+transition: width 0.6s ease-out;
+`
+button.style=`
+position:absolute;
+top:8px;
+right:8px;
+height:40px;
+width:40px;
+border:none;
+font-size:20px;
+z-index:11;
+background-color: #ddd;
+cursor: pointer;
+font-weight:bold;
+`
+span.style=`
+font-size:20px;
+position:absolute;
+left:10px;
+z-index:10;
+transition:opacity 0.4s 0.7s;
+user-select:none;
+max-height:120px;
+overflow:hidden;
+`
+
+
+
+// 
+// 获取需要拖动的div元素 divs
+// 定义变量，记录鼠标按下时的位置
+let startX, startY;
+// 定义变量，记录div元素的初始位置
+let initialX, initialY;
+// 定义变量，记录是否处于拖动状态
+let isDragging = false;
+// 鼠标按下事件监听器
+divs.addEventListener('mousedown', function(e) {
+  // 记录鼠标按下时的位置
+  startX = e.clientX;
+  startY = e.clientY;
+  // 记录div元素的初始位置
+  const rect = div.getBoundingClientRect();
+  initialX = rect.left;
+  initialY = rect.top;
+  // 将状态设置为拖动状态
+  isDragging = true;
+});
+// 鼠标移动事件监听器
+document.addEventListener('mousemove', function(e) {
+  // 如果不处于拖动状态，则直接返回
+  if (!isDragging) return;
+  div.style.transition="";
+  // 计算div元素的新位置
+  const dx = e.clientX - startX;
+  const dy = e.clientY - startY;
+  const newX = initialX + dx;
+  const newY = initialY + dy;
+  // 将div元素移到新位置
+  div.style.left = newX + 'px';
+  div.style.top = newY + 'px';
+});
+// 鼠标松开事件监听器
+document.addEventListener('mouseup', function() {
+  // 将状态设置为非拖动状态
+  if(isDragging){
+    div.style.transition="top 0.3s ease-out,left 0.3s ease-out  ";//过渡动画之间的配合和设计非常巧妙
+    if(div.getBoundingClientRect().top<110){div.style.top="110px"}
+    if(div.getBoundingClientRect().top>window.innerHeight-180){div.style.top=window.innerHeight-180+"px"}
+    if(div.getBoundingClientRect().left>window.innerWidth-160){div.style.left=window.innerWidth-160+"px"}
+    if(div.getBoundingClientRect().left<0){div.style.left=0+"px"}
+    localStorage.setItem("boxx",  div.style.left);//保存
+localStorage.setItem("boxy", div.style.top);//保存
+// setTimeout(function(){div.style.transition="";},400)
+isDragging = false;}
+});
+
+window.addEventListener('resize', function() {
+  if(div.getBoundingClientRect().top>window.innerHeight-180){div.style.top=window.innerHeight-180+"px"}
+    if(div.getBoundingClientRect().left>window.innerWidth-160){div.style.left=window.innerWidth-160+"px"}
+});
+
+var boxx = localStorage.getItem("boxx");//读取
+var boxy = localStorage.getItem("boxy");//读取
+if(boxx){
+    div.style.left = boxx;
+  div.style.top = boxy;}
+
+    </script>
+</body>
+</html>
