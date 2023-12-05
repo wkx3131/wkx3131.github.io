@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?0c8d38aca11e686e8a6d4c3883305c41";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+        
 
     <style>
         body{
             background-color: #ddd;
+        }
+        .beizhu{
+            position: relative;
+top: -70px;
+left: 10px;
+font-size: 12px;
+color: rgba(0, 0, 0, 0);
         }
 
 
@@ -18,8 +35,8 @@
             position: absolute;
             left: 50%;
             top: 50%;
+            color: black;
             transform: translate(-50%, -50%);
-            filter: blur(20px);
         }
         .circle:hover {
             box-shadow: 10px 10px 5px rgb(233, 212, 118);
@@ -46,7 +63,7 @@
         }
         
         #circle3 {
-            background-color: rgba(64, 132, 68, 0.8);
+            background-color: rgba(64, 132, 68, 0.7);
             animation: moveRight 2s ease-in-out 1s forwards;
         }
 
@@ -87,11 +104,12 @@
     </style>
 </head>
 <body>
-    <h2 style="size: 86px;">金岂-我的作品导航页11</h2>
+    <h2 style="size: 86px;">金岂-我的作品导航页</h2>
     <h4><a href="./null.html">我的简历</a></h4>
+    <p><a href="https://greasyfork.org/zh-CN/scripts/462915-%E4%BC%91%E6%81%AF%E4%B8%80%E4%B8%8B">油猴脚本详情页链接</a></p>
     <div id="container">
-        <a href="./sese.html"><div id="circle1" class="circle"><h1 id="hh1">我的色色</h1><p>使用说明请查看油猴脚本详情页<br> https://greasyfork.org/zh-CN/scripts/462915-%E4%BC%91%E6%81%AF%E4%B8%80%E4%B8%8B<br></p></div></a>
-        <a href="https://wkx3131.github.io/wkx.github.io/#/login"><div id="circle2" class="circle"><h1 id="hh1">我的毕设</h1><p>目前只适配电脑端</p></div></a>
+        <a href="./sese.html"><div id="circle1" class="circle"><h1 id="hh1">二次元图</h1><p class="beizhu" id="hh1"> 使用说明请查看油猴脚本详情页<br> https://greasyfork.org/zh-CN/scripts/462915-%E4%BC%91%E6%81%AF%E4%B8%80%E4%B8%8B</p></div></a>
+        <a href="https://wkx3131.github.io/wkx.github.io/#/login"><div id="circle2" class="circle"><h1 id="hh1">我的毕设</h1><p class="beizhu" id="hh1">目前只适配电脑端</p></div></a>
         <a href="./null.html"><div id="circle3" class="circle"><h1 id="hh1">我的摄影</h1></div></a>
     </div>
 
